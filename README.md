@@ -5,27 +5,16 @@ Extend the package 'bytes' to directly  perform conversion between units
 - `npm install bytes-extra --save`
 
 # Usage
-All functions from the original package `bytes` are still available, except the direct call with a string as the first argument.
+All functions from the original package `bytes` are available.
 ```
 const bytes = require('bytes-extra')
 
 // as usual
 bytes(1024)                  //'1KB'
 bytes()                      // null
-
-bytes('1GB').result          // 1073741824
-bytes('1GB').to('MB')        //'1024MB'
-
-bytes('1MB')                 // 1048576
-
-let opt = {decimalPlaces: 5, unitSeparator: '/'}
-bytes('1MB').to('GB', opt)   //'0.00098/GB'
+bytes('1GB')                 // 1073741824
 ```
-If a string is provided as the first argument, an object is returned as the following structure.  
+If a string is provided as the first argument and the second argument `options` contains `unit` field, an string is returned as the unit conversion result.  
 ```
-{
-  result: number,                    //Result from the original 'bytes' package
-  to: (unitIn, options) => string      //function
-}
+bytes('1GB', {unit: 'MB'})   //'1024MB'
 ```
-The `options` is the same as options in the original package `bytes`, while `unit` field will be overriden by argument `unitIn`

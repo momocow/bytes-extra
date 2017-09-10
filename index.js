@@ -3,10 +3,10 @@ const bytes = require('bytes')
 module.exports = function (value, options) {
   if (typeof value === 'string') {
     let parsed = bytes.parse(value)
-    return {result: parsed, to: function(unitIn, optIn = {}){
-      Object.assign(optIn, {unit: unitIn})
-      return bytes.format(parsed, optIn)
-    }}
+    if(!options || !options.unit){
+      return parsed
+    }
+    return bytes.format(parsed, options)
   }
 
   if (typeof value === 'number') {

@@ -7,20 +7,14 @@ describe('bytes-extra', function(){
     expect(bytes.parse).to.be.a('function')
     expect(bytes.format).to.be.a('function')
   })
-  it('should behave just like the original \'bytes\' while directly called except that the first argument is a string', function(){
+  it('should behave just like the original \'bytes\' while directly called', function(){
     let res1 = bytes(1024), res2 = bytes({type: "invalid"}), res3 = bytes('1024MB')
     expect(res1).to.be.a('string').that.equal('1KB')
     expect(res2).to.be.null
-    expect(res3).to.be.a('object').but.not.to.be.a('number')
+    expect(res3).to.be.a('number')
   })
-  it('should return an object with the conversion result and the function #to() while directly called with a string', function(){
-    let res = bytes('1024MB')
-    expect(res).to.be.a('object').that.has.all.keys(['result', 'to'])
-    expect(res.result).to.be.a('number')
-    expect(res.to).to.be.a('function')
-  })
-  it('should return \'1GB\' as the conversion result from \'1024MB\'', function(){
-    let res = bytes('1024MB').to('GB')
+  it('called with #bytes(\'1024MB\', {unit: \'GB\'}) should return \'1GB\'', function(){
+    let res = bytes('1024MB', {unit: 'GB'})
     expect(res).to.be.a('string').that.equal('1GB')
   })
 })
