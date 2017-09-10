@@ -9,8 +9,11 @@ All functions from the original package `bytes` are still available, except the 
 ```
 const bytes = require('bytes-extra')
 
+// as usual
 bytes(1024)            //'1KB'
-bytes()                //null
+bytes()                // null
+
+bytes('1GB').result    // 1073741824
 bytes('1GB').to('MB')  //'1024MB'
 ```
 If a string is provided as the first argument, an object is returned as the following structure.  
