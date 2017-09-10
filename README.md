@@ -1,4 +1,6 @@
 # bytes-extra
+[![Build Status](https://travis-ci.org/momocow/bytes-extra.svg?branch=master)](https://travis-ci.org/momocow/bytes-extra)  
+
 Extend the package 'bytes' to directly  perform conversion between units
 
 # Installation
