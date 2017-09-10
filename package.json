@@ -1,6 +1,6 @@
 {
   "name": "bytes-extra",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Extend the package 'bytes' to directly  perform conversion between units, e.g. bytes('1GB').to('MB') => '1024MB'",
   "main": "index.js",
   "scripts": {
